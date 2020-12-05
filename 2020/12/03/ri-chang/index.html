@@ -473,7 +473,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    274
+                    362
                 </div>
                 
 
@@ -516,7 +516,7 @@
 <h3 id="2020-12-04"><a href="#2020-12-04" class="headerlink" title="2020-12-04"></a>2020-12-04</h3><blockquote>
 <p>今天<a href="http://www.wlxwyx.com/">域名</a>ICP备案(<strong>豫ICP备2020034415号</strong>)终于通过了  </p>
 </blockquote>
-<p>忙了一天,终于把hexo博客发布到服务器上,走了很多坑,特此记录一下<br>服务端使用的<a target="_blank" rel="noopener" href="https://www.docker.com/">docker</a>+<a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">nginx</a>经典组合,有两种方法把hexo放上去</p>
+<p>把hexo博客发布到服务器上,走了很多坑,特此记录一下<br>服务端使用的<a target="_blank" rel="noopener" href="https://www.docker.com/">docker</a>+<a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">nginx</a>经典组合,有两种方法把hexo放上去</p>
 <ol>
 <li><p>在服务器端搭建镜像,然后就像在本地那样运行</p>
 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">hexo g &amp;&amp; hexo s &amp;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -526,6 +526,11 @@
 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">hexo g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>然后把public里的所有文件放在<strong>tomcat&gt;webapps&gt;ROOT</strong>文件夹下<br>实测第2种方法访问速度更快</p>
 </li>
+</ol>
+<h3 id="2020-12-05"><a href="#2020-12-05" class="headerlink" title="2020-12-05"></a>2020-12-05</h3><p>申请了<strong>阿里云免费ssl证书</strong>,使用期一年<br>坑点如下:</p>
+<ol>
+<li>docker + ngnix + tomcat始终设置不成功,一气之下重装了系统,单独使用tomcat,真香;</li>
+<li>阿里云帮助文档过时了,找了好久,终于按这个方法<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/102939.html">SSL证书 &gt; 最佳实践 &gt; CentOS系统Tomcat 8.5或9部署SSL证书</a>成功解决问题.</li>
 </ol>
 
                 
@@ -1353,7 +1358,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1k</span>&nbsp;字
+                class="white-color">1.1k</span>&nbsp;字
             
             
             
