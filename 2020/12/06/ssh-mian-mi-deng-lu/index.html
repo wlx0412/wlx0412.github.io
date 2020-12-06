@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="果机小站" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="果机小站" type="application/atom+xml">
 </head>
 
 
@@ -501,7 +501,7 @@
                 <p>ssh连接远程服务器,每次登录都需要输入<code>ssh 用户名@ip地址</code>,然后输入密码就很烦<br>本文就是解决这个麻烦</p>
 <h3 id="一-生成一对公钥私钥"><a href="#一-生成一对公钥私钥" class="headerlink" title="一. 生成一对公钥私钥"></a>一. 生成一对公钥私钥</h3><p>本地终端执行</p>
 <pre class="line-numbers language-terminal" data-language="terminal"><code class="language-terminal">ssh-keygen -t rsa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>一路回车,就能在<code>/Users/用户名/.ssh</code>里看到<br><img src="http://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-06%2014.43.50.png" alt="生成的公钥"></p>
+<p>一路回车,就能在<code>/Users/用户名/.ssh</code>里看到<br><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-06%2014.43.50.png" alt="生成的公钥"></p>
 <ul>
 <li>id_rsa（密钥） </li>
 <li>id_rsa.pub（公钥）需要上传到服务器  </li>
@@ -512,8 +512,8 @@ Hostname 12.123.1.123 #服务器ip地址
 User root #root为登陆用户名
 Port 22 #主机端口，默认是22
 IdentityFile /Users/wangluxian/.ssh/id_rsa #生成的私钥的文件路径<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="三-把公钥放到服务器上"><a href="#三-把公钥放到服务器上" class="headerlink" title="三. 把公钥放到服务器上"></a>三. 把公钥放到服务器上</h3><h4 id="1-登录服务器终端执行"><a href="#1-登录服务器终端执行" class="headerlink" title="1. 登录服务器终端执行"></a>1. 登录服务器终端执行</h4><p><code>vim /etc/ssh/sshd_config</code><br><img src="http://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-06%2014.30.49.png" alt="修改sshd_config"><br>去掉<code>PubkeyAuthentication</code>和<code>AuthorizedKeysFile</code>前面的#注释</p>
-<h4 id="2-本地终端在-ssh目录下执行"><a href="#2-本地终端在-ssh目录下执行" class="headerlink" title="2. 本地终端在.ssh目录下执行"></a>2. 本地终端在.ssh目录下执行</h4><p><code>ssh-copy-id root@12.123.1.123</code><br>按要求输入服务器登录密码,以后登录就可以这样<br><code>ssh wlx</code><br><img src="http://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-06%2014.46.07.png" alt="ssh wlx登录"><br><code>wlx</code>是之前在本地<strong>config</strong>里写的<strong>Host</strong></p>
+<h3 id="三-把公钥放到服务器上"><a href="#三-把公钥放到服务器上" class="headerlink" title="三. 把公钥放到服务器上"></a>三. 把公钥放到服务器上</h3><h4 id="1-登录服务器终端执行"><a href="#1-登录服务器终端执行" class="headerlink" title="1. 登录服务器终端执行"></a>1. 登录服务器终端执行</h4><p><code>vim /etc/ssh/sshd_config</code><br><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-06%2014.30.49.png" alt="修改sshd_config"><br>去掉<code>PubkeyAuthentication</code>和<code>AuthorizedKeysFile</code>前面的#注释</p>
+<h4 id="2-本地终端在-ssh目录下执行"><a href="#2-本地终端在-ssh目录下执行" class="headerlink" title="2. 本地终端在.ssh目录下执行"></a>2. 本地终端在.ssh目录下执行</h4><p><code>ssh-copy-id root@12.123.1.123</code><br>按要求输入服务器登录密码,以后登录就可以这样<br><code>ssh wlx</code><br><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-06%2014.46.07.png" alt="ssh wlx登录"><br><code>wlx</code>是之前在本地<strong>config</strong>里写的<strong>Host</strong></p>
 
                 
             </div>
