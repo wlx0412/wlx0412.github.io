@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>iOS开发问题集锦</title>
+      <link href="2020/12/09/ios-kai-fa-wen-ti-ji-jin/"/>
+      <url>2020/12/09/ios-kai-fa-wen-ti-ji-jin/</url>
+      
+        <content type="html"><![CDATA[<h3 id="swift-unit单元测试找不到oc桥接文件"><a href="#swift-unit单元测试找不到oc桥接文件" class="headerlink" title="swift unit单元测试找不到oc桥接文件"></a>swift unit单元测试找不到oc桥接文件</h3><p>出现这个问题的原因是使用cocoapods管理第三库，cocoapods默认为源target的Search Paths进行了设置，而没有对其他的target进行设置，包括UnitTest和UnitUITest。所以只需要把对应的target的Search Paths进行设置即可。</p><p><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-09%2017.52.13.png" alt="设置target的search path"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> swift </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ssh免密登录</title>
       <link href="2020/12/06/ssh-mian-mi-deng-lu/"/>
       <url>2020/12/06/ssh-mian-mi-deng-lu/</url>
