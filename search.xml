@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>Hook之Tweak</title>
+      <link href="2020/12/14/hook-zhi-tweak/"/>
+      <url>2020/12/14/hook-zhi-tweak/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Tweak"><a href="#Tweak" class="headerlink" title="Tweak"></a>Tweak</h3><p>Tweak是一个在iOS越狱平台上的动态库，可以hook应用，在应用运行期间，执行我们自己写的代码，实现类似外挂的功能。</p><h4 id="1-下载安装"><a href="#1-下载安装" class="headerlink" title="1.下载安装"></a>1.下载安装</h4><ul><li><p>Tweak依赖<strong>dpkg</strong>、<strong>fakeroot</strong>和<strong>ldid</strong>，mac终端执行下面的代码</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew install ldid fakerootbrew install --from-bottle https://raw.githubusercontent.com/Homebrew/homebrew-core/7a4dabfc1a2acd9f01a1670fde4f0094c4fb6ffa/Formula/dpkg.rbbrew pin dpkg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li><li><p>在根目录新建/opt目录</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd /opt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>安装Tweak</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone --recursive https://github.com/theos/theos.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>修改theos文件夹权限</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo chown -R $(id -u):$(id -g) theos<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>修改环境变量,打开<code>~/.zshrc</code> 或者<code>~/.bash_profile</code></p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export THEOS=/opt/theosexport PATH=/opt/theos/bin/:$PATH<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li><li><p>命令行查看是否成功</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">echo $THEOS/opt/theos  --如果输出这样就表示成功了<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li></ul><h4 id="2-第一个Tweak"><a href="#2-第一个Tweak" class="headerlink" title="2.第一个Tweak"></a>2.第一个Tweak</h4><ul><li><p>找一个目录，cd进去，执行</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">nic.pl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-14%2018.21.54.png" alt="创建tweak项目"></p><blockquote><p>选择的模板：15</p><p>项目名：second</p><p>Bundle Identifier：com.fr.test</p><p>作者：wlx</p><p>要hook的应用Bundle Identifier：com.apple.MobileSMS</p><p>要Hook项目Mach-o文件名: MobileSMS</p></blockquote><p><em>注意： 刚开始我使用的是<code>SpringBoard</code>,一直不成功，后来换成<code>MobileSMS</code>就成功了</em></p></li><li><p>进入<code>cd second</code>, <code>ls</code>,我这里是</p><blockquote><p>Makefile            Tweak.x                control                second.plist</p></blockquote><p>重命名Tweak.x为Tweak.xm</p></li><li><p>修改Makefile里的Tweak.x为Tweak.xm,添加</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">THEOS_DEVICE_IP = 192.168.1.123  #手机ip THEOS_DEVICE_PORT = 22 #手机端口号ARCHS = armv7 arm64 #手机支持的平台<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li><li><p>Tweak.xm添加</p><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">@import UIKit;%hook SMSApplication-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{    UIAlertView *alert = [[UIAlertView alloc]    initWithTitle:@"Hello，lecoding!"    message:nil    delegate:self cancelButtonTitle:@"OK"    otherButtonTitles:nil];    [alert show];    return %orig; }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>编译打包安装</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">make //编译make package //打包make install //安装<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><img src="https://img.wlxwyx.com/1658A8A2E342C62A66F23F048E88CBFE.png" alt="hook 消息"></p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS逆向 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>汇编语言1</title>
       <link href="2020/12/09/hui-bian-yu-yan-1/"/>
       <url>2020/12/09/hui-bian-yu-yan-1/</url>
       
-        <content type="html"><![CDATA[<h3 id="汇编语言基础入门"><a href="#汇编语言基础入门" class="headerlink" title="汇编语言基础入门(-)"></a>汇编语言基础入门(-)</h3><p>在<strong>Dosbox</strong>进入后<em>debug</em>模式下,可以输入以下命令(注意前面的-是自带,不用输)</p><pre class="line-numbers language-汇编语言" data-language="汇编语言"><code class="language-汇编语言">-d 查看内存-e 向内存写入数据-a 写入指令-u 转换内存数据为指令-t 逐步执行-r 查看寄存器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><blockquote><p>命令后面可以跟地址,🌰-d 1000:100 查看1000:100处的内存  </p></blockquote><ol><li><p>-d / -e 查看写入数据<br><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-09%2020.40.15.png" alt="-e 向内存写入数据"></p></li><li><p>-r 查看寄存器<br><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-09%2020.48.43.png" alt="-r 查看修改寄存器"></p></li><li><p>-a 写入指令<br><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-09%2021.01.05.png" alt="-a 写入指令"></p></li><li><p>-u 把内存数据转换成可读指令<br><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-09%2021.11.11.png" alt="-u 转换指令"></p></li><li><p>-t 执行指令<br><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-09%2021.36.59.png" alt="-t 执行指令"></p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h3 id="汇编语言基础入门"><a href="#汇编语言基础入门" class="headerlink" title="汇编语言基础入门(-)"></a>汇编语言基础入门(-)</h3><p>在<strong>Dosbox</strong>进入后<em>debug</em>模式下,可以输入以下命令(注意前面的-是自带,不用输)</p><pre class="line-numbers language-汇编语言" data-language="汇编语言"><code class="language-汇编语言">-d 查看内存-e 向内存写入数据-a 写入指令-u 转换内存数据为指令-t 逐步执行-r 查看寄存器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><blockquote><p>命令后面可以跟地址,🌰-d 1000:100 查看1000:100处的内存  </p></blockquote><ol><li><p>-d / -e 查看写入数据<br><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-09%2020.40.15.png" alt="-e 向内存写入数据"></p></li><li><p>-r 查看寄存器<br><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-09%2020.48.43.png" alt="-r 查看修改寄存器"></p></li><li><p>-a 写入指令<br><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-09%2021.01.05.png" alt="-a 写入指令"></p></li><li><p>-u 把内存数据转换成可读指令<br><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-09%2021.11.11.png" alt="-u 转换指令"></p></li><li><p>-t 执行指令<br><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-09%2021.36.59.png" alt="-t 执行指令"><br><code>mov ax:[1]</code>实际是[cs:1],段地址cs+偏移地址1<br><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-10%2009.07.06.png" alt="指令:地址"></p></li></ol>]]></content>
       
       
       <categories>
