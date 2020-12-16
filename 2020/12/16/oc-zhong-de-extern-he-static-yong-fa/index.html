@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="我的第一篇博文, iOS开发">
+    <meta name="keywords" content="oc中的extern和static用法, iOS开发">
     <meta name="description" content="果机小站--程序汪de博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>我的第一篇博文 | 果机小站</title>
+    <title>oc中的extern和static用法 | 果机小站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">我的第一篇博文</h1>
+                    <h1 class="description center-align post-title">oc中的extern和static用法</h1>
                 </div>
             </div>
         </div>
@@ -434,8 +434,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                                <span class="chip bg-color">博客</span>
+                            <a href="/tags/oc/">
+                                <span class="chip bg-color">oc</span>
+                            </a>
+                        
+                            <a href="/tags/Objective-C/">
+                                <span class="chip bg-color">Objective-C</span>
                             </a>
                         
                     </div>
@@ -459,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-03
+                    2020-12-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-03
+                    2020-12-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    84
+                    322
                 </div>
                 
 
@@ -498,45 +502,71 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World!"></a>Hello World!</h1><h3 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h3><pre><code>第一段  
-第二段</code></pre>
-<blockquote>
-<p>区块引用</p>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-</ul>
+                <h3 id="一、-extern"><a href="#一、-extern" class="headerlink" title="一、 extern"></a>一、 extern</h3><blockquote>
+<p>1.只是用来获取全局变量(包括全局静态变量)的值，不能用于定义变量</p>
+<p>2.extern工作原理:先在当前文件查找有没有全局变量，没有找到，才会去其他文件查找</p>
 </blockquote>
-<ul>
-<li>菜鸟教程<blockquote>
-<p>1.java<br>2.js</p>
-</blockquote>
-</li>
-<li>菜鸟教程<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3>单行代码<br><code>print('hello world')</code><br>多行代码<pre class="line-numbers language-Swfit" data-language="Swfit"><code class="language-Swfit">let str = "hello world"
-print(str)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h4><p>定义的位置在<code>interface</code>和<code>implementation</code>之外</p>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">#import&lt;UIKit/UIKit.h&gt;  
 
-</li>
+NSString* const testStr; //全局静态常量
+NSInteger count; //全局静态变量
+
+@interface AViewController ()
+@end
+@implementation AViewController<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-使用"><a href="#2-使用" class="headerlink" title="2.使用"></a>2.使用</h4><p>在另一个类<code>.m</code>文件中使用</p>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">#import&lt;UIKit/UIKit.h&gt; 
+
+extern NSInteger count;
+
+@interface CViewController ()
+@end
+@implementation CViewController<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="二、-static"><a href="#二、-static" class="headerlink" title="二、 static"></a>二、 static</h3><ul>
+<li>修饰局部变量</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/">菜鸟教程</a><br><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标"></p>
-<table>
-<thead>
-<tr>
-<th align="left">左对齐</th>
-<th align="right">右对齐</th>
-<th align="center">居中对齐</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-<tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-</tbody></table>
+<blockquote>
+<p>1.延长局部变量的生命周期,程序结束才会销毁</p>
+<p>2.局部变量只会生成一份内存,只会初始化一次</p>
+<p>3.改变局部变量的作用域</p>
+</blockquote>
+<ul>
+<li>修饰全局变量</li>
+</ul>
+<blockquote>
+<p>1.只能在本文件中访问,修改全局变量的作用域,生命周期不会改</p>
+<p>2.避免重复定义全局变量</p>
+</blockquote>
+<h4 id="1-定义-1"><a href="#1-定义-1" class="headerlink" title="1.定义"></a>1.定义</h4><p>在<code>.h</code>文件中定义</p>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">#import &lt;UIKit/UIKit.h&gt;
+
+static NSInteger countKey;
+
+@interface BViewController : UIViewController
+@property(assign,nonatomic) NSInteger countTwo;
+@end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在<code>.m</code>文件中</p>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">+ (NSInteger)countTwo {
+    return countKey;
+}
+
++ (void)setCountTwo:(NSInteger)countTwo {
+    countKey = countTwo;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-使用-1"><a href="#2-使用-1" class="headerlink" title="2.使用"></a>2.使用</h4><p>在另一文件中使用</p>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">//设置
+[BViewController setCountTwo: countTwo];
+//使用
+NSInteger countTwo = [BViewController countTwo];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="三、const"><a href="#三、const" class="headerlink" title="三、const"></a>三、const</h3><blockquote>
+<p>被const修饰的变量是只读的,常用来定义常量</p>
+</blockquote>
 
                 
             </div>
@@ -563,7 +593,7 @@ print(str)<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.wlxwyx.com/2020/12/03/wo-de-di-yi-pian-bo-wen/">http://www.wlxwyx.com/2020/12/03/wo-de-di-yi-pian-bo-wen/</a>
+                    <a href="http://www.wlxwyx.com/2020/12/16/oc-zhong-de-extern-he-static-yong-fa/">http://www.wlxwyx.com/2020/12/16/oc-zhong-de-extern-he-static-yong-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -601,8 +631,12 @@ print(str)<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                                    <span class="chip bg-color">博客</span>
+                                <a href="/tags/oc/">
+                                    <span class="chip bg-color">oc</span>
+                                </a>
+                            
+                                <a href="/tags/Objective-C/">
+                                    <span class="chip bg-color">Objective-C</span>
                                 </a>
                             
                         </div>
@@ -1035,66 +1069,18 @@ print(str)<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/12/03/hello-world/">
+                <a href="/2020/12/16/oc-zhong-de-extern-he-static-yong-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="oc中的extern和static用法">
                         
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-03
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Hexo/" class="post-category">
-                                    Hexo
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/12/03/wo-de-di-yi-pian-bo-wen/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="我的第一篇博文">
-                        
-                        <span class="card-title">我的第一篇博文</span>
+                        <span class="card-title">oc中的extern和static用法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1105,7 +1091,7 @@ print(str)<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-16
                             </span>
                         <span class="publish-author">
                             
@@ -1123,8 +1109,61 @@ print(str)<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
+                    <a href="/tags/oc/">
+                        <span class="chip bg-color">oc</span>
+                    </a>
+                    
+                    <a href="/tags/Objective-C/">
+                        <span class="chip bg-color">Objective-C</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/12/14/hook-zhi-tweak/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Hook之Tweak">
+                        
+                        <span class="card-title">Hook之Tweak</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/iOS/" class="post-category">
+                                    iOS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/iOS%E9%80%86%E5%90%91/">
+                        <span class="chip bg-color">iOS逆向</span>
                     </a>
                     
                 </div>

@@ -6,7 +6,7 @@
   <link href="http://www.wlxwyx.com/atom.xml" rel="self"/>
   
   <link href="http://www.wlxwyx.com/"/>
-  <updated>2020-12-14T11:15:27.374Z</updated>
+  <updated>2020-12-16T03:53:18.028Z</updated>
   <id>http://www.wlxwyx.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>oc中的extern和static用法</title>
+    <link href="http://www.wlxwyx.com/2020/12/16/oc-zhong-de-extern-he-static-yong-fa/"/>
+    <id>http://www.wlxwyx.com/2020/12/16/oc-zhong-de-extern-he-static-yong-fa/</id>
+    <published>2020-12-16T03:13:26.000Z</published>
+    <updated>2020-12-16T03:53:18.028Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、-extern&quot;&gt;&lt;a href=&quot;#一、-extern&quot; class=&quot;headerlink&quot; title=&quot;一、 extern&quot;&gt;&lt;/a&gt;一、</summary>
+        
+      
+    
+    
+    
+    <category term="iOS" scheme="http://www.wlxwyx.com/categories/iOS/"/>
+    
+    
+    <category term="oc" scheme="http://www.wlxwyx.com/tags/oc/"/>
+    
+    <category term="Objective-C" scheme="http://www.wlxwyx.com/tags/Objective-C/"/>
+    
+  </entry>
   
   <entry>
     <title>Hook之Tweak</title>

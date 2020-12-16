@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>oc中的extern和static用法</title>
+      <link href="2020/12/16/oc-zhong-de-extern-he-static-yong-fa/"/>
+      <url>2020/12/16/oc-zhong-de-extern-he-static-yong-fa/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、-extern"><a href="#一、-extern" class="headerlink" title="一、 extern"></a>一、 extern</h3><blockquote><p>1.只是用来获取全局变量(包括全局静态变量)的值，不能用于定义变量</p><p>2.extern工作原理:先在当前文件查找有没有全局变量，没有找到，才会去其他文件查找</p></blockquote><h4 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h4><p>定义的位置在<code>interface</code>和<code>implementation</code>之外</p><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">#import&lt;UIKit/UIKit.h&gt;  NSString* const testStr; //全局静态常量NSInteger count; //全局静态变量@interface AViewController ()@end@implementation AViewController<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="2-使用"><a href="#2-使用" class="headerlink" title="2.使用"></a>2.使用</h4><p>在另一个类<code>.m</code>文件中使用</p><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">#import&lt;UIKit/UIKit.h&gt; extern NSInteger count;@interface CViewController ()@end@implementation CViewController<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="二、-static"><a href="#二、-static" class="headerlink" title="二、 static"></a>二、 static</h3><ul><li>修饰局部变量</li></ul><blockquote><p>1.延长局部变量的生命周期,程序结束才会销毁</p><p>2.局部变量只会生成一份内存,只会初始化一次</p><p>3.改变局部变量的作用域</p></blockquote><ul><li>修饰全局变量</li></ul><blockquote><p>1.只能在本文件中访问,修改全局变量的作用域,生命周期不会改</p><p>2.避免重复定义全局变量</p></blockquote><h4 id="1-定义-1"><a href="#1-定义-1" class="headerlink" title="1.定义"></a>1.定义</h4><p>在<code>.h</code>文件中定义</p><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">#import &lt;UIKit/UIKit.h&gt;static NSInteger countKey;@interface BViewController : UIViewController@property(assign,nonatomic) NSInteger countTwo;@end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>在<code>.m</code>文件中</p><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">+ (NSInteger)countTwo {    return countKey;}+ (void)setCountTwo:(NSInteger)countTwo {    countKey = countTwo;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="2-使用-1"><a href="#2-使用-1" class="headerlink" title="2.使用"></a>2.使用</h4><p>在另一文件中使用</p><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">//设置[BViewController setCountTwo: countTwo];//使用NSInteger countTwo = [BViewController countTwo];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h3 id="三、const"><a href="#三、const" class="headerlink" title="三、const"></a>三、const</h3><blockquote><p>被const修饰的变量是只读的,常用来定义常量</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> oc </tag>
+            
+            <tag> Objective-C </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hook之Tweak</title>
       <link href="2020/12/14/hook-zhi-tweak/"/>
       <url>2020/12/14/hook-zhi-tweak/</url>
