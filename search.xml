@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>frida-ios-dump一键砸壳</title>
+      <link href="2020/12/18/frida-ios-dump-yi-jian-za-ke/"/>
+      <url>2020/12/18/frida-ios-dump-yi-jian-za-ke/</url>
+      
+        <content type="html"><![CDATA[<h3 id="frida-ios-dump"><a href="#frida-ios-dump" class="headerlink" title="frida-ios-dump"></a><a href="https://github.com/AloneMonkey/frida-ios-dump">frida-ios-dump</a></h3><p>前提：</p><blockquote><ol><li><p>iphone已越狱，且在Cydia添加<code>frida软件源</code>(<a href="https://links.jianshu.com/go?to=https://build.frida.re">https://build.frida.re</a>)安装frida</p></li><li><p>mac已安装python和pip</p></li></ol></blockquote><h4 id="1-安装frida-ios-dump"><a href="#1-安装frida-ios-dump" class="headerlink" title="1.安装frida-ios-dump"></a>1.安装frida-ios-dump</h4><ul><li><p>安装usbmuxd</p><p><code>brew install usbmuxd</code></p></li><li><p>安装<a href="https://frida.re/">frida</a></p><p><code>sudo pip install frida-tools</code></p><p><code>frida-trace -i "recv*" Twitter</code></p><p>如果报错使用：<br><code>sudo pip install frida –upgrade –ignore-installed six</code></p></li><li><p>安装 <a href="https://github.com/AloneMonkey/frida-ios-dump">frida-ios-dump</a></p><p><code>git clone https://github.com/AloneMonkey/frida-ios-dump.git</code></p></li></ul><h4 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h4><p>在frida-ios-dump文件夹下</p><ol><li><p><code>sudo pip install -r requirements.txt --upgrade</code></p></li><li><p>终端执行</p><p><code>iproxy 2222 22</code></p><p><kbd>command</kbd> + <kbd>N</kbd>新开一个终端</p><p><code>ssh -p 2222 root@127.0.0.1</code></p></li><li><p>再新开一个终端，cd到dump.py所在文件夹</p><p><code>dump.py -l</code> 查看手机上的App</p><p>如果报错：ImportError: No module named ‘xxx’<br><code>sudo pip install 'xxx'</code></p><blockquote><p>这里有一个坑，现在一般使用python3，所以dump.py首行要换成<strong>#!/usr/bin/env python3</strong>, pip要换成<strong>pip3</strong></p></blockquote></li><li><p><code>dump.py [Display name]</code><br>或者<br><code>dump.py [Bundle identifier]</code></p></li><li><p>获得的的xxx.ipa文件就在dump.py所在文件夹，拖入<code>ida</code>或者<code>hopper</code>就可使用</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS逆向 </tag>
+            
+            <tag> oc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>oc中的extern和static用法</title>
       <link href="2020/12/16/oc-zhong-de-extern-he-static-yong-fa/"/>
       <url>2020/12/16/oc-zhong-de-extern-he-static-yong-fa/</url>
