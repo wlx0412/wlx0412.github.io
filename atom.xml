@@ -6,7 +6,7 @@
   <link href="http://www.wlxwyx.com/atom.xml" rel="self"/>
   
   <link href="http://www.wlxwyx.com/"/>
-  <updated>2020-12-18T08:30:57.500Z</updated>
+  <updated>2020-12-21T07:04:10.038Z</updated>
   <id>http://www.wlxwyx.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TestFlight无法载入app问题</title>
+    <link href="http://www.wlxwyx.com/2020/12/21/testflight-wu-fa-zai-ru-app-wen-ti/"/>
+    <id>http://www.wlxwyx.com/2020/12/21/testflight-wu-fa-zai-ru-app-wen-ti/</id>
+    <published>2020-12-21T06:39:00.000Z</published>
+    <updated>2020-12-21T07:04:10.038Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;安装TestFlight遇到“无法载入app”或白屏怎么办？&quot;&gt;&lt;a href=&quot;#安装TestFlight遇到“无法载入app”或白屏怎么办？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="iOS" scheme="http://www.wlxwyx.com/categories/iOS/"/>
+    
+    
+    <category term="iOS" scheme="http://www.wlxwyx.com/tags/iOS/"/>
+    
+    <category term="TestFlight" scheme="http://www.wlxwyx.com/tags/TestFlight/"/>
+    
+  </entry>
   
   <entry>
     <title>frida-ios-dump一键砸壳</title>
