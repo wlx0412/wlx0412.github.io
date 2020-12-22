@@ -473,7 +473,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    174
+                    301
                 </div>
                 
 
@@ -514,6 +514,15 @@
 <img src="https://img.wlxwyx.com/Certificates_Identifiers_Profiles_Apple_Developer.png" alt="证书无效" style="zoom:50%;">
 
 <p><strong>重新创建证书或者重新编辑证书都可以解决</strong></p>
+<h3 id="3、iOS-关于Multiple-commands-produce-问题"><a href="#3、iOS-关于Multiple-commands-produce-问题" class="headerlink" title="3、iOS 关于Multiple commands produce 问题"></a>3、iOS 关于Multiple commands produce 问题</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Multiple commands produce <span class="token string">'/Users/wangluxian/Library/Developer/Xcode/DerivedData/UniversalApp-ddymjvnhwjfecjacqnicsckrezpi/Build/Products/Debug-iphoneos/UniversalApp.app/Info.plist'</span><span class="token builtin class-name">:</span>
+<span class="token number">1</span><span class="token punctuation">)</span> Target <span class="token string">'UniversalApp'</span> <span class="token punctuation">(</span>project <span class="token string">'UniversalApp'</span><span class="token punctuation">)</span> has copy <span class="token builtin class-name">command</span> from <span class="token string">'/Users/wangluxian/Downloads/UniversalProject-master/UniversalApp/Supporting Flies/Info.plist'</span> to <span class="token string">'/Users/wangluxian/Library/Developer/Xcode/DerivedData/UniversalApp-ddymjvnhwjfecjacqnicsckrezpi/Build/Products/Debug-iphoneos/UniversalApp.app/Info.plist'</span>
+<span class="token number">2</span><span class="token punctuation">)</span> Target <span class="token string">'UniversalApp'</span> <span class="token punctuation">(</span>project <span class="token string">'UniversalApp'</span><span class="token punctuation">)</span> has process <span class="token builtin class-name">command</span> with output <span class="token string">'/Users/wangluxian/Library/Developer/Xcode/DerivedData/UniversalApp-ddymjvnhwjfecjacqnicsckrezpi/Build/Products/Debug-iphoneos/UniversalApp.app/Info.plist'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>info.plist报错问题，检查路径是否错了</p>
+<p>1.把<strong>Build Phases</strong>里的<code>info.plist</code>删除</p>
+<p><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-22%2011.52.05.png" alt="删除info.plist"></p>
+<p>2.把<strong>Build Setting</strong>里的<code>info.plist File</code>删了重新添加</p>
+<p><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-22%2011.51.31.png" alt="重新添加info.plist"></p>
 
                 
             </div>
@@ -1340,7 +1349,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.8k</span>&nbsp;字
+                class="white-color">2.9k</span>&nbsp;字
             
             
             
