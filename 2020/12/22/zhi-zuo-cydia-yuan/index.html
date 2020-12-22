@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="日常, iOS开发">
+    <meta name="keywords" content="制作cydia源, iOS开发">
     <meta name="description" content="果机小站--程序汪de博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>日常 | 果机小站</title>
+    <title>制作cydia源 | 果机小站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">日常</h1>
+                    <h1 class="description center-align post-title">制作cydia源</h1>
                 </div>
             </div>
         </div>
@@ -434,8 +434,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%94%9F%E6%B4%BB/">
-                                <span class="chip bg-color">生活</span>
+                            <a href="/tags/iOS/">
+                                <span class="chip bg-color">iOS</span>
+                            </a>
+                        
+                            <a href="/tags/cydia/">
+                                <span class="chip bg-color">cydia</span>
                             </a>
                         
                     </div>
@@ -446,8 +450,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%97%A5%E5%B8%B8/" class="post-category">
-                                日常
+                            <a href="/categories/iOS/" class="post-category">
+                                iOS
                             </a>
                         
                     </div>
@@ -459,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-03
+                    2020-12-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-05
+                    2020-12-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    362
+                    125
                 </div>
                 
 
@@ -498,39 +502,30 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="随笔"><a href="#随笔" class="headerlink" title="随笔"></a>随笔</h1><h3 id="2020-11-26"><a href="#2020-11-26" class="headerlink" title="2020-11-26"></a>2020-11-26</h3><blockquote>
-<p>购买<a target="_blank" rel="noopener" href="https://swas.console.aliyun.com/#/servers">阿里云轻量级服务器</a>  </p>
+                <h3 id="搭建Cydia软件源"><a href="#搭建Cydia软件源" class="headerlink" title="搭建Cydia软件源"></a>搭建Cydia软件源</h3><p>创建cydia文件夹，内容如下</p>
+<blockquote>
+<p>cydia–<br>     |–debs //文件夹<br>     |–Packages<br>     |–Packages.bz2<br>     |–Release</p>
 </blockquote>
-<p><strong>防坑指南</strong></p>
-<ul>
-<li>轻量级服务器不支持ipv6,也不可以通过升级支持</li>
-<li>阿里云ECS只有部分地区(<em>内蒙</em>, <em>北京</em>等)支持ipv6</li>
-</ul>
-<h3 id="2020-11-27"><a href="#2020-11-27" class="headerlink" title="2020-11-27"></a>2020-11-27</h3><blockquote>
-<p>购买<a href="http://www.wlxwyx.com/">域名</a>并备案  </p>
+<p>1.把deb文件放入debs文件夹中,在cydia目录执行下面的命令，即可获得<code>Packages</code>文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dpkg-scanpackages debs <span class="token operator">&gt;</span> Packages<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>2.生成<code>Packages.bz2</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">bzip2</span> Packages<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>3.<code>Release</code>文件</p>
+<blockquote>
+<p> Origin: jujuwan  //app名字，自定义</p>
+<p> Label: jujuwan</p>
+<p> Suite: stable</p>
+<p> Version: 1.0.2  //app版本</p>
+<p> Codename: jujuwan</p>
+<p> Support: <a target="_blank" rel="noopener" href="http://cydia.saurik.com/support/">http://cydia.saurik.com/support/</a>*</p>
+<p> Architectures: darwin-arm iphoneos-arm</p>
+<p> Components: main</p>
+<p> Description: Apps &amp; Themes! We host your apps. Email me.</p>
 </blockquote>
-<p>注意: 首次域名备案等待时间很长,<del>至今还没通过</del></p>
-<h3 id="2020-12-03"><a href="#2020-12-03" class="headerlink" title="2020-12-03"></a>2020-12-03</h3><blockquote>
-<p>使用<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>+<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery">matery皮肤</a>创建博客到<a target="_blank" rel="noopener" href="https://wlx0412.github.io/">github</a>上</p>
-</blockquote>
-<h3 id="2020-12-04"><a href="#2020-12-04" class="headerlink" title="2020-12-04"></a>2020-12-04</h3><blockquote>
-<p>今天<a href="http://www.wlxwyx.com/">域名</a>ICP备案(<strong>豫ICP备2020034415号</strong>)终于通过了  </p>
-</blockquote>
-<p>把hexo博客发布到服务器上,走了很多坑,特此记录一下<br>服务端使用的<a target="_blank" rel="noopener" href="https://www.docker.com/">docker</a>+<a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">nginx</a>经典组合,有两种方法把hexo放上去</p>
-<ol>
-<li><p>在服务器端搭建镜像,然后就像在本地那样运行</p>
-<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">hexo g &amp;&amp; hexo s &amp;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>末尾的<code>&amp;</code>符号,是使hexo一直在后台运行,本地运行是不用带的</p>
-</li>
-<li><p>部署到web服务器中运行,我使用的是tomcat,</p>
-<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">hexo g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后把public里的所有文件放在<strong>tomcat&gt;webapps&gt;ROOT</strong>文件夹下<br>实测第2种方法访问速度更快</p>
-</li>
-</ol>
-<h3 id="2020-12-05"><a href="#2020-12-05" class="headerlink" title="2020-12-05"></a>2020-12-05</h3><p>申请了<strong>阿里云免费ssl证书</strong>,使用期一年<br>坑点如下:</p>
-<ol>
-<li>docker + ngnix + tomcat始终设置不成功,一气之下重装了系统,单独使用tomcat,真香;</li>
-<li>阿里云帮助文档过时了,找了好久,终于按这个方法<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/102939.html">SSL证书 &gt; 最佳实践 &gt; CentOS系统Tomcat 8.5或9部署SSL证书</a>成功解决问题.</li>
+<ol start="4">
+<li>把cydia文件放在web服务器上即可</li>
 </ol>
 
                 
@@ -558,7 +553,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.wlxwyx.com/2020/12/03/ri-chang/">http://www.wlxwyx.com/2020/12/03/ri-chang/</a>
+                    <a href="http://www.wlxwyx.com/2020/12/22/zhi-zuo-cydia-yuan/">http://www.wlxwyx.com/2020/12/22/zhi-zuo-cydia-yuan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -596,8 +591,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%94%9F%E6%B4%BB/">
-                                    <span class="chip bg-color">生活</span>
+                                <a href="/tags/iOS/">
+                                    <span class="chip bg-color">iOS</span>
+                                </a>
+                            
+                                <a href="/tags/cydia/">
+                                    <span class="chip bg-color">cydia</span>
                                 </a>
                             
                         </div>
@@ -1030,17 +1029,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/12/03/markdown-ji-ben-yu-fa/">
+                <a href="/2020/12/22/zhi-zuo-cydia-yuan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Markdown基本语法">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="制作cydia源">
                         
-                        <span class="card-title">Markdown基本语法</span>
+                        <span class="card-title">制作cydia源</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1050,26 +1050,31 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hexo/" class="post-category">
-                                    Hexo
+                            <a href="/categories/iOS/" class="post-category">
+                                    iOS
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Markdown/">
-                        <span class="chip bg-color">Markdown</span>
+                    <a href="/tags/iOS/">
+                        <span class="chip bg-color">iOS</span>
+                    </a>
+                    
+                    <a href="/tags/cydia/">
+                        <span class="chip bg-color">cydia</span>
                     </a>
                     
                 </div>
@@ -1083,13 +1088,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/12/03/hello-world/">
+                <a href="/2020/12/21/testflight-wu-fa-zai-ru-app-wen-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="TestFlight无法载入app问题">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">TestFlight无法载入app问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1100,14 +1105,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hexo/" class="post-category">
-                                    Hexo
+                            <a href="/categories/iOS/" class="post-category">
+                                    iOS
                                 </a>
                             
                             
@@ -1117,8 +1122,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
+                    <a href="/tags/iOS/">
+                        <span class="chip bg-color">iOS</span>
+                    </a>
+                    
+                    <a href="/tags/TestFlight/">
+                        <span class="chip bg-color">TestFlight</span>
                     </a>
                     
                 </div>

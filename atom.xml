@@ -6,7 +6,7 @@
   <link href="http://www.wlxwyx.com/atom.xml" rel="self"/>
   
   <link href="http://www.wlxwyx.com/"/>
-  <updated>2020-12-21T07:16:55.476Z</updated>
+  <updated>2020-12-22T13:12:04.227Z</updated>
   <id>http://www.wlxwyx.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>制作cydia源</title>
+    <link href="http://www.wlxwyx.com/2020/12/22/zhi-zuo-cydia-yuan/"/>
+    <id>http://www.wlxwyx.com/2020/12/22/zhi-zuo-cydia-yuan/</id>
+    <published>2020-12-22T12:49:10.000Z</published>
+    <updated>2020-12-22T13:12:04.227Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;搭建Cydia软件源&quot;&gt;&lt;a href=&quot;#搭建Cydia软件源&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="iOS" scheme="http://www.wlxwyx.com/categories/iOS/"/>
+    
+    
+    <category term="iOS" scheme="http://www.wlxwyx.com/tags/iOS/"/>
+    
+    <category term="cydia" scheme="http://www.wlxwyx.com/tags/cydia/"/>
+    
+  </entry>
   
   <entry>
     <title>TestFlight无法载入app问题</title>

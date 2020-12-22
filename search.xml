@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>制作cydia源</title>
+      <link href="2020/12/22/zhi-zuo-cydia-yuan/"/>
+      <url>2020/12/22/zhi-zuo-cydia-yuan/</url>
+      
+        <content type="html"><![CDATA[<h3 id="搭建Cydia软件源"><a href="#搭建Cydia软件源" class="headerlink" title="搭建Cydia软件源"></a>搭建Cydia软件源</h3><p>创建cydia文件夹，内容如下</p><blockquote><p>cydia–<br>     |–debs //文件夹<br>     |–Packages<br>     |–Packages.bz2<br>     |–Release</p></blockquote><p>1.把deb文件放入debs文件夹中,在cydia目录执行下面的命令，即可获得<code>Packages</code>文件</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dpkg-scanpackages debs <span class="token operator">&gt;</span> Packages<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>2.生成<code>Packages.bz2</code></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">bzip2</span> Packages<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>3.<code>Release</code>文件</p><blockquote><p> Origin: jujuwan  //app名字，自定义</p><p> Label: jujuwan</p><p> Suite: stable</p><p> Version: 1.0.2  //app版本</p><p> Codename: jujuwan</p><p> Support: <a href="http://cydia.saurik.com/support/">http://cydia.saurik.com/support/</a>*</p><p> Architectures: darwin-arm iphoneos-arm</p><p> Components: main</p><p> Description: Apps &amp; Themes! We host your apps. Email me.</p></blockquote><ol start="4"><li>把cydia文件放在web服务器上即可</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+            <tag> cydia </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>TestFlight无法载入app问题</title>
       <link href="2020/12/21/testflight-wu-fa-zai-ru-app-wen-ti/"/>
       <url>2020/12/21/testflight-wu-fa-zai-ru-app-wen-ti/</url>
