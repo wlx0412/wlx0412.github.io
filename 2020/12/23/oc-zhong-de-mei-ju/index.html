@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="frida-ios-dump一键砸壳, iOS开发">
+    <meta name="keywords" content="oc中的枚举, iOS开发">
     <meta name="description" content="果机小站--程序汪de博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>frida-ios-dump一键砸壳 | 果机小站</title>
+    <title>oc中的枚举 | 果机小站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">frida-ios-dump一键砸壳</h1>
+                    <h1 class="description center-align post-title">oc中的枚举</h1>
                 </div>
             </div>
         </div>
@@ -434,12 +434,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/iOS%E9%80%86%E5%90%91/">
-                                <span class="chip bg-color">iOS逆向</span>
+                            <a href="/tags/Objective-C/">
+                                <span class="chip bg-color">Objective-C</span>
                             </a>
                         
-                            <a href="/tags/oc/">
-                                <span class="chip bg-color">oc</span>
+                            <a href="/tags/iOS/">
+                                <span class="chip bg-color">iOS</span>
                             </a>
                         
                     </div>
@@ -450,8 +450,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/iOS/" class="post-category">
-                                iOS
+                            <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="post-category">
+                                编程语言
                             </a>
                         
                     </div>
@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-18
+                    2020-12-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-18
+                    2020-12-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    227
+                    424
                 </div>
                 
 
@@ -502,49 +502,77 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="frida-ios-dump"><a href="#frida-ios-dump" class="headerlink" title="frida-ios-dump"></a><a target="_blank" rel="noopener" href="https://github.com/AloneMonkey/frida-ios-dump">frida-ios-dump</a></h3><p>前提：</p>
-<blockquote>
-<ol>
-<li><p>iphone已越狱，且在Cydia添加<code>frida软件源</code>(<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://build.frida.re">https://build.frida.re</a>)安装frida</p>
+                <h3 id="oc中的枚举NS-ENUM与NS-OPTIONS"><a href="#oc中的枚举NS-ENUM与NS-OPTIONS" class="headerlink" title="oc中的枚举NS_ENUM与NS_OPTIONS"></a>oc中的枚举NS_ENUM与NS_OPTIONS</h3><p><code>NS_ENUM</code>适用于变量只有一种情况，非此即彼</p>
+<p><code>NS_OPTIONS</code>适用于变量可以有多种情况并存，可以多个枚举值组合使用</p>
+<h4 id="一、NS-ENUM"><a href="#一、NS-ENUM" class="headerlink" title="一、NS_ENUM"></a>一、NS_ENUM</h4><p>NS_ENUM 的</p>
+<ul>
+<li><p>第一个参数是用于存储的新类型的类型,在64位环境下有8bytes长,你要保证你给出的所有值能被该类型容纳，否则就会产生错误</p>
 </li>
-<li><p>mac已安装python和pip</p>
+<li><p>第二个参数是你要定义的新类型的名字</p>
 </li>
-</ol>
-</blockquote>
-<h4 id="1-安装frida-ios-dump"><a href="#1-安装frida-ios-dump" class="headerlink" title="1.安装frida-ios-dump"></a>1.安装frida-ios-dump</h4><ul>
-<li><p>安装usbmuxd</p>
-<p><code>brew install usbmuxd</code></p>
-</li>
-<li><p>安装<a target="_blank" rel="noopener" href="https://frida.re/">frida</a></p>
-<p><code>sudo pip install frida-tools</code></p>
-<p><code>frida-trace -i "recv*" Twitter</code></p>
-<p>如果报错使用：<br><code>sudo pip install frida –upgrade –ignore-installed six</code></p>
-</li>
-<li><p>安装 <a target="_blank" rel="noopener" href="https://github.com/AloneMonkey/frida-ios-dump">frida-ios-dump</a></p>
-<p><code>git clone https://github.com/AloneMonkey/frida-ios-dump.git</code></p>
+<li><p>大括号里面是你要定义的各种值,一般枚举名加上后缀区别区别，枚举项的值默认是从0开始连续递增（若自定义值，后一项会在前一项的基础上自增1）</p>
 </li>
 </ul>
-<h4 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h4><p>在frida-ios-dump文件夹下</p>
-<ol>
-<li><p><code>sudo pip install -r requirements.txt --upgrade</code></p>
-</li>
-<li><p>终端执行</p>
-<p><code>iproxy 2222 22</code></p>
-<p><kbd>command</kbd> + <kbd>N</kbd>新开一个终端</p>
-<p><code>ssh -p 2222 root@127.0.0.1</code></p>
-</li>
-<li><p>再新开一个终端，cd到dump.py所在文件夹</p>
-<p><code>dump.py -l</code> 查看手机上的App</p>
-<p>如果报错：ImportError: No module named ‘xxx’<br><code>sudo pip install 'xxx'</code></p>
-<blockquote>
-<p>这里有一个坑，现在一般使用python3，所以dump.py首行要换成<strong>#!/usr/bin/env python3</strong>, pip要换成<strong>pip3</strong></p>
-</blockquote>
-</li>
-<li><p><code>dump.py [Display name]</code><br>或者<br><code>dump.py [Bundle identifier]</code></p>
-</li>
-<li><p>获得的的xxx.ipa文件就在dump.py所在文件夹，拖入<code>ida</code>或者<code>hopper</code>就可使用</p>
-</li>
-</ol>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">typedef NS_ENUM(NSInteger, UIViewAnimationTransition) {
+    UIViewAnimationTransitionNone=0,       //值为0
+    UIViewAnimationTransitionFlipFromLeft, //值为1
+    UIViewAnimationTransitionFlipFromRight,//值为2
+    UIViewAnimationTransitionCurlUp,       //值为3
+    UIViewAnimationTransitionCurlDown      //值为4
+};
+或
+typedef NS_ENUM(NSInteger, UIViewAnimationTransition) {
+    UIViewAnimationTransitionNone=0,       //值为0
+    UIViewAnimationTransitionFlipFromLeft=2, //值为2
+    UIViewAnimationTransitionFlipFromRight,//值为3
+    UIViewAnimationTransitionCurlUp,       //值为4
+    UIViewAnimationTransitionCurlDown      //值为5
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>简写形式（不推荐）</p>
+<pre class="line-numbers language-none"><code class="language-none">typedef enum {
+    UIViewAnimationTransitionNone,//默认从0开始
+    UIViewAnimationTransitionFlipFromLeft,
+    UIViewAnimationTransitionFlipFromRight,
+    UIViewAnimationTransitionCurlUp,
+    UIViewAnimationTransitionCurlDown
+}UIViewAnimationTransition;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="二、NS-OPTIONS"><a href="#二、NS-OPTIONS" class="headerlink" title="二、NS_OPTIONS"></a>二、NS_OPTIONS</h4><ul>
+<li>第一个为NSUInteger这个为固定值</li>
+<li>第二个为自定义的枚举类型</li>
+</ul>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">typedef NS_OPTIONS(NSUInteger, UISwipeGestureRecognizerDirection) {
+    UISwipeGestureRecognizerDirectionNone = 0,  //值为0
+    UISwipeGestureRecognizerDirectionRight = 1 &lt;&lt; 0,  //值为2的0次方
+    UISwipeGestureRecognizerDirectionLeft = 1 &lt;&lt; 1,  //值为2的1次方
+    UISwipeGestureRecognizerDirectionUp = 1 &lt;&lt; 2,  //值为2的2次方
+    UISwipeGestureRecognizerDirectionDown = 1 &lt;&lt; 3  //值为2的3次方
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="三、enum"><a href="#三、enum" class="headerlink" title="三、enum"></a>三、enum</h4><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">enum ViewType {
+    Contacts_Stranger,//陌生人
+    Contacts_NormalFriend,//普通好友
+    Contacts_SpecialFriend,//特别关心好友
+};
+或者
+typedef enum  {
+    Contacts_Stranger,//陌生人
+    Contacts_NormalFriend,//普通好友
+    Contacts_SpecialFriend,//特别关心好友
+}ViewType;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>oc枚举只能NSInteger类型,想要获取NSString类型的值，可以使用下面这种方法</p>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">//定义枚举
+typedef enum {value1, value2, value3} myValue;
+
+//定义宏，获取枚举值
+#define myValueString(enum) [@[@"value1",@"value2",@"value3"] objectAtIndex:enum]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -571,7 +599,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.wlxwyx.com/2020/12/18/frida-ios-dump-yi-jian-za-ke/">http://www.wlxwyx.com/2020/12/18/frida-ios-dump-yi-jian-za-ke/</a>
+                    <a href="http://www.wlxwyx.com/2020/12/23/oc-zhong-de-mei-ju/">http://www.wlxwyx.com/2020/12/23/oc-zhong-de-mei-ju/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -609,12 +637,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/iOS%E9%80%86%E5%90%91/">
-                                    <span class="chip bg-color">iOS逆向</span>
+                                <a href="/tags/Objective-C/">
+                                    <span class="chip bg-color">Objective-C</span>
                                 </a>
                             
-                                <a href="/tags/oc/">
-                                    <span class="chip bg-color">oc</span>
+                                <a href="/tags/iOS/">
+                                    <span class="chip bg-color">iOS</span>
                                 </a>
                             
                         </div>
@@ -1051,13 +1079,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/12/21/testflight-wu-fa-zai-ru-app-wen-ti/">
+                <a href="/2020/12/28/office-de-xiao-ji-qiao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="TestFlight无法载入app问题">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="office的小技巧">
                         
-                        <span class="card-title">TestFlight无法载入app问题</span>
+                        <span class="card-title">office的小技巧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1068,8 +1096,61 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-28
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/office/" class="post-category">
+                                    office
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Excel/">
+                        <span class="chip bg-color">Excel</span>
+                    </a>
+                    
+                    <a href="/tags/Word/">
+                        <span class="chip bg-color">Word</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/12/22/zhi-zuo-cydia-yuan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="制作cydia源">
+                        
+                        <span class="card-title">制作cydia源</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1089,61 +1170,8 @@
                         <span class="chip bg-color">iOS</span>
                     </a>
                     
-                    <a href="/tags/TestFlight/">
-                        <span class="chip bg-color">TestFlight</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/12/16/oc-zhong-de-extern-he-static-yong-fa/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="oc中的extern和static用法">
-                        
-                        <span class="card-title">oc中的extern和static用法</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-16
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/iOS/" class="post-category">
-                                    iOS
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/oc/">
-                        <span class="chip bg-color">oc</span>
-                    </a>
-                    
-                    <a href="/tags/Objective-C/">
-                        <span class="chip bg-color">Objective-C</span>
+                    <a href="/tags/cydia/">
+                        <span class="chip bg-color">cydia</span>
                     </a>
                     
                 </div>

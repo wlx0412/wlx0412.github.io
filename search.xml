@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>office的小技巧</title>
+      <link href="2020/12/28/office-de-xiao-ji-qiao/"/>
+      <url>2020/12/28/office-de-xiao-ji-qiao/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、office插入方框选中的符号"><a href="#一、office插入方框选中的符号" class="headerlink" title="一、office插入方框选中的符号"></a>一、office插入<code>方框选中</code>的符号</h3><ol><li><p>在<code>插入</code>-<code>符号</code>里找到，点确定就可以插入此符号了</p><p><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-28%2011.46.38.png" alt="插入方框选中"></p></li><li><p>输入大写字母<code>R</code>并选中，在<code>开始</code>改变文字样式为<code>Wingdings 2</code></p><p><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-28%2011.46.01.png" alt="改变文字样式插入方框选中"></p></li></ol><h3 id="二、Excel转图片"><a href="#二、Excel转图片" class="headerlink" title="二、Excel转图片"></a>二、Excel转图片</h3><p>在<code>开始</code>中先选中要转换的内容<code>复制</code>，在要插入图片的地方点击<code>开始</code>下的<code>粘贴</code>按钮,选择<code>粘贴为图片</code>,即可插入图片，也可以在图片上右键另存为</p><p><img src="https://img.wlxwyx.com/2020-12-28%2011.34.16.png" alt="Excel转图片"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> office </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Excel </tag>
+            
+            <tag> Word </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>oc中的枚举</title>
+      <link href="2020/12/23/oc-zhong-de-mei-ju/"/>
+      <url>2020/12/23/oc-zhong-de-mei-ju/</url>
+      
+        <content type="html"><![CDATA[<h3 id="oc中的枚举NS-ENUM与NS-OPTIONS"><a href="#oc中的枚举NS-ENUM与NS-OPTIONS" class="headerlink" title="oc中的枚举NS_ENUM与NS_OPTIONS"></a>oc中的枚举NS_ENUM与NS_OPTIONS</h3><p><code>NS_ENUM</code>适用于变量只有一种情况，非此即彼</p><p><code>NS_OPTIONS</code>适用于变量可以有多种情况并存，可以多个枚举值组合使用</p><h4 id="一、NS-ENUM"><a href="#一、NS-ENUM" class="headerlink" title="一、NS_ENUM"></a>一、NS_ENUM</h4><p>NS_ENUM 的</p><ul><li><p>第一个参数是用于存储的新类型的类型,在64位环境下有8bytes长,你要保证你给出的所有值能被该类型容纳，否则就会产生错误</p></li><li><p>第二个参数是你要定义的新类型的名字</p></li><li><p>大括号里面是你要定义的各种值,一般枚举名加上后缀区别区别，枚举项的值默认是从0开始连续递增（若自定义值，后一项会在前一项的基础上自增1）</p></li></ul><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">typedef NS_ENUM(NSInteger, UIViewAnimationTransition) {    UIViewAnimationTransitionNone=0,       //值为0    UIViewAnimationTransitionFlipFromLeft, //值为1    UIViewAnimationTransitionFlipFromRight,//值为2    UIViewAnimationTransitionCurlUp,       //值为3    UIViewAnimationTransitionCurlDown      //值为4};或typedef NS_ENUM(NSInteger, UIViewAnimationTransition) {    UIViewAnimationTransitionNone=0,       //值为0    UIViewAnimationTransitionFlipFromLeft=2, //值为2    UIViewAnimationTransitionFlipFromRight,//值为3    UIViewAnimationTransitionCurlUp,       //值为4    UIViewAnimationTransitionCurlDown      //值为5};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>简写形式（不推荐）</p><pre class="line-numbers language-none"><code class="language-none">typedef enum {    UIViewAnimationTransitionNone,//默认从0开始    UIViewAnimationTransitionFlipFromLeft,    UIViewAnimationTransitionFlipFromRight,    UIViewAnimationTransitionCurlUp,    UIViewAnimationTransitionCurlDown}UIViewAnimationTransition;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="二、NS-OPTIONS"><a href="#二、NS-OPTIONS" class="headerlink" title="二、NS_OPTIONS"></a>二、NS_OPTIONS</h4><ul><li>第一个为NSUInteger这个为固定值</li><li>第二个为自定义的枚举类型</li></ul><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">typedef NS_OPTIONS(NSUInteger, UISwipeGestureRecognizerDirection) {    UISwipeGestureRecognizerDirectionNone = 0,  //值为0    UISwipeGestureRecognizerDirectionRight = 1 &lt;&lt; 0,  //值为2的0次方    UISwipeGestureRecognizerDirectionLeft = 1 &lt;&lt; 1,  //值为2的1次方    UISwipeGestureRecognizerDirectionUp = 1 &lt;&lt; 2,  //值为2的2次方    UISwipeGestureRecognizerDirectionDown = 1 &lt;&lt; 3  //值为2的3次方};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="三、enum"><a href="#三、enum" class="headerlink" title="三、enum"></a>三、enum</h4><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">enum ViewType {    Contacts_Stranger,//陌生人    Contacts_NormalFriend,//普通好友    Contacts_SpecialFriend,//特别关心好友};或者typedef enum  {    Contacts_Stranger,//陌生人    Contacts_NormalFriend,//普通好友    Contacts_SpecialFriend,//特别关心好友}ViewType;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>oc枚举只能NSInteger类型,想要获取NSString类型的值，可以使用下面这种方法</p><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">//定义枚举typedef enum {value1, value2, value3} myValue;//定义宏，获取枚举值#define myValueString(enum) [@[@"value1",@"value2",@"value3"] objectAtIndex:enum]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程语言 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Objective-C </tag>
+            
+            <tag> iOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>制作cydia源</title>
       <link href="2020/12/22/zhi-zuo-cydia-yuan/"/>
       <url>2020/12/22/zhi-zuo-cydia-yuan/</url>
