@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>动态设置版本号</title>
+      <link href="2021/01/18/ios-qi-dong-tu-dong-tai-she-zhi-ban-ben-hao/"/>
+      <url>2021/01/18/ios-qi-dong-tu-dong-tai-she-zhi-ban-ben-hao/</url>
+      
+        <content type="html"><![CDATA[<p>iOSApp启动图有两种方式</p><ol><li><p>使用启动图Launch Screen</p></li><li><p>制作不同尺寸的静态图片</p></li></ol><p>由于第二种比较繁琐，所以一般常用第一种方式</p><p><strong>现在有个需求是启动图上添加版本号，并自动更新</strong></p><p>实现步骤如下：</p><ol><li>LaunchScreen.storyboard上添加一个UILabel,属性添加一个标记，然后右键<code>open as source</code>打开LaunchScreen.storyboard,会发现userLabel=”APP_VERSION”,下面需要用到</li></ol><p><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2021-01-18%2009.50.33.png" alt="图1"></p><p><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2021-01-18%2009.53.00.png" alt="图2"></p><ol start="2"><li>添加脚本，Update Launch Version是自定义脚本名，可以自行替换</li></ol><p><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2021-01-18%2009.53.53.png" alt="图3"></p><p>脚本代码如下</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">versionNumber</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>/usr/libexec/PlistBuddy -c <span class="token string">"Print :CFBundleShortVersionString"</span> <span class="token string">"<span class="token variable">${PROJECT_DIR}</span>/<span class="token variable">${INFOPLIST_FILE}</span>"</span><span class="token variable">)</span></span><span class="token function">sed</span> -i bak -e <span class="token string">"/userLabel=<span class="token entity" title="\&quot;">\"</span>APP_VERSION<span class="token entity" title="\&quot;">\"</span>/s/text=<span class="token entity" title="\&quot;">\"</span>[^<span class="token entity" title="\&quot;">\"</span>]*<span class="token entity" title="\&quot;">\"</span>/text=<span class="token entity" title="\&quot;">\"</span>版本号V<span class="token variable">$versionNumber</span><span class="token entity" title="\&quot;">\"</span>/"</span> <span class="token variable">$PROJECT_DIR</span>/frTF/Base.lproj/LaunchScreen.storyboard<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><code>frTF</code>是工程名，请自行替换</p><p>然后启动项目发现版本号显示为<code>版本号V$MARKETING_VERSION</code></p><p>解决方式是把脚本中的这一句<code>版本号V$versionNumber</code>替换为<code>版本号V$MARKETING_VERSION</code></p><p>最后成果如下</p><img src="https://img.wlxwyx.com/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-01-18%20at%2009.54.58.png" alt="成果" style="zoom:20%;"><p><a href="https://stackoverflow.com/questions/37214139/how-do-i-display-the-cfbundleshortversionstring-in-my-launchstoryboard">参考资料</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS版本号 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>office的小技巧</title>
       <link href="2020/12/28/office-de-xiao-ji-qiao/"/>
       <url>2020/12/28/office-de-xiao-ji-qiao/</url>
@@ -47,9 +72,9 @@
       
         <tags>
             
-            <tag> Objective-C </tag>
-            
             <tag> iOS </tag>
+            
+            <tag> Objective-C </tag>
             
         </tags>
       
