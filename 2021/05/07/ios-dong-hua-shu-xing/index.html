@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hook之Tweak, iOS开发">
+    <meta name="keywords" content="iOS动画属性, iOS开发">
     <meta name="description" content="果机小站--程序汪de博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hook之Tweak | 果机小站</title>
+    <title>iOS动画属性 | 果机小站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -341,12 +341,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hook之Tweak</h1>
+                    <h1 class="description center-align post-title">iOS动画属性</h1>
                 </div>
             </div>
         </div>
@@ -462,8 +462,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/iOS%E9%80%86%E5%90%91/">
-                                <span class="chip bg-color">iOS逆向</span>
+                            <a href="/tags/iOS-%E5%8A%A8%E7%94%BB/">
+                                <span class="chip bg-color">iOS 动画</span>
                             </a>
                         
                     </div>
@@ -487,28 +487,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-14
+                    2021-05-07
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-14
+                    2021-05-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    359
+                    877
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -526,81 +526,233 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Tweak"><a href="#Tweak" class="headerlink" title="Tweak"></a>Tweak</h3><p>Tweak是一个在iOS越狱平台上的动态库，可以hook应用，在应用运行期间，执行我们自己写的代码，实现类似外挂的功能。</p>
-<h4 id="1-下载安装"><a href="#1-下载安装" class="headerlink" title="1.下载安装"></a>1.下载安装</h4><ul>
-<li><p>Tweak依赖<strong>dpkg</strong>、<strong>fakeroot</strong>和<strong>ldid</strong>，mac终端执行下面的代码</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew install ldid fakeroot
-brew install --from-bottle https://raw.githubusercontent.com/Homebrew/homebrew-core/7a4dabfc1a2acd9f01a1670fde4f0094c4fb6ffa/Formula/dpkg.rb
-brew pin dpkg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>在根目录新建/opt目录</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd /opt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>安装Tweak</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone --recursive https://github.com/theos/theos.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>修改theos文件夹权限</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo chown -R $(id -u):$(id -g) theos<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>修改环境变量,打开<code>~/.zshrc</code> 或者<code>~/.bash_profile</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export THEOS=/opt/theos
-export PATH=/opt/theos/bin/:$PATH<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>命令行查看是否成功</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">echo $THEOS
-/opt/theos  --如果输出这样就表示成功了<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+                <h4 id="一、基础动画"><a href="#一、基础动画" class="headerlink" title="一、基础动画"></a>一、基础动画</h4><p>1.动画属性介绍</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Duration</td>
+<td>动画持续时间，可能会被速度影响</td>
+</tr>
+<tr>
+<td>Autoreverses</td>
+<td>属性为 YES 时，动画结束后会平滑过渡到开始之前</td>
+</tr>
+<tr>
+<td>RemovedOnCompletion</td>
+<td>属性默认为 YES,在指定的时间段完成后,动画就自动的从层上移除</td>
+</tr>
+<tr>
+<td>FillMode</td>
+<td>一般和 RemovedOnCompletion 配合使用，保持动画状态。其中kCAFillModeForwards 当动画结束后,layer会一直保持着动画最后的状态.此时将RemovedOnCompletion设为NO</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>默认的值为 1.0.如果你改变这个值为 2.0,动画会用 2 倍的速度播放。这样的影响就是使持续时间减半。如果你指定的持续时间为 6 秒,速度为 2.0,动画就会播放 3 秒钟即一半的持续时间。</td>
+</tr>
+<tr>
+<td>RepeatCount</td>
+<td>默认的是 0,动画只会播放一次。如果指定一个无限大的重复次数,使用 MAXFLOAT 。这个不应该和 repeatDration 属性一块使用</td>
+</tr>
+<tr>
+<td>RepeatDuration</td>
+<td>这个属性指定了动画应该被重复多久。动画会一直重复,直到设定的时间用完。同上它不应该和 repeatCount 一起使用</td>
+</tr>
+<tr>
+<td>FromValue</td>
+<td>设置动画的初始值</td>
+</tr>
+<tr>
+<td>ToValue</td>
+<td>设置动画的到达值</td>
+</tr>
+<tr>
+<td>TimingFunction</td>
+<td>控制动画运行的节奏.    kCAMediaTimingFunctionLinear（线性）：匀速，给你一个相对静态的感觉    kCAMediaTimingFunctionEaseIn（渐进）：动画缓慢进入，然后加速离开    kCAMediaTimingFunctionEaseOut（渐出）：动画全速进入，然后减速的到达目的地    kCAMediaTimingFunctionEaseInEaseOut（渐进渐出）：动画缓慢的进入，中间加速，然后减速的到达目的地。这个是默认的动画行为。</td>
+</tr>
+<tr>
+<td>BeginTime</td>
+<td>可以用来设置动画延迟执行时间，若想延迟1s，就设置为CACurrentMediaTime()+1，CACurrentMediaTime()为图层的当前时间</td>
+</tr>
+</tbody></table>
+<p>2.基础动画的keyPath</p>
+<p>transform.rotation.x 围绕x轴翻转 参数：角度 angle2Radian(4) </p>
+<p>　　transform.rotation.y 围绕y轴翻转 参数：同上 </p>
+<p>　　transform.rotation.z 围绕z轴翻转 参数：同上 </p>
+<p>　　transform.rotation 默认围绕z轴 </p>
+<p>　　transform.scale.x x方向缩放 参数：缩放比例 1.5 </p>
+<p>　　transform.scale.y y方向缩放 参数：同上 </p>
+<p>　　transform.scale.z z方向缩放 参数：同上 </p>
+<p>　　transform.scale 所有方向缩放 参数：同上 </p>
+<p>　　transform.translation.x x方向移动 参数：x轴上的坐标 100 </p>
+<p>　　transform.translation.y x方向移动 参数：y轴上的坐标 </p>
+<p>　　transform.translation.z x方向移动 参数：z轴上的坐标 </p>
+<p>　　transform.translation 移动 参数：移动到的点 （100，100） </p>
+<p>　　opacity 透明度 参数：透明度 0.5 </p>
+<p>　　backgroundColor 背景颜色 参数：颜色 (id)[[UIColor redColor] CGColor] </p>
+<p>　　cornerRadius 圆角 参数：圆角半径 5 </p>
+<p>　　borderWidth 边框宽度 参数：边框宽度 5 </p>
+<p>　　bounds 大小 参数：CGRect </p>
+<p>　　contents 内容 参数：CGImage </p>
+<p>　　contentsRect 可视内容 参数：CGRect 值是0～1之间的小数 </p>
+<p>　　hidden 是否隐藏 </p>
+<p>　　position 位置</p>
+<p>　　shadowColor 阴影颜色</p>
+<p>　　shadowOffset 阴影偏移</p>
+<p>　　shadowOpacity 阴影透明图</p>
+<p>　　shadowRadius 阴影圆角</p>
+<h4 id="二、转场动画"><a href="#二、转场动画" class="headerlink" title="二、转场动画"></a>二、转场动画</h4><p>1.转场动画的type</p>
+<table align="center">
+  <tbody><tr>
+    <th rowspan="2">type的值</th>
+      <th rowspan="2">解释</th>
+    <th colspan="2" align="center">对应的常量</th>
+  </tr>
+  <tr>
+    <td>oc</td>
+    <td>swift</td>
+  </tr>
+  <tr>
+       <td>push</td>
+    <td>推挤</td>
+    <td>kCATransitionPush</td>
+    <td>CATransitionType.push</td>
+  </tr>
+  <tr>
+    <td>fade</td>
+    <td>淡入淡出</td>
+    <td>kCATransitionFade</td>
+    <td>CATransitionType.fade</td>
+  </tr>
+  <tr>
+    <td>reveal</td>
+    <td>揭开</td>
+    <td>kCATransitionReveal</td>
+    <td>CATransitionType.reveal</td>
+  </tr>
+  <tr>
+    <td>moveIn</td>
+    <td>覆盖</td>
+    <td>kCATransitionMoveIn</td>
+    <td>CATransitionType.moveIn</td>
+  </tr>
+  <tr>
+    <td>cube</td>
+    <td>立方体</td>
+    <td rowspan="7" colspan="2" align="center">私有api</td>
+  </tr>
+  <tr>
+    <td>suckEffect</td>
+    <td>吮吸</td>
+  </tr>
+  <tr>
+    <td>oglFlip</td>
+    <td>翻转</td>
+  </tr>
+  <tr>
+    <td>rippleEffect</td>
+    <td>波纹</td>
+  </tr>
+  <tr>
+    <td>pageCurl</td>
+    <td>反翻页</td>
+  </tr>
+   <tr>
+    <td>cameralrisHollowOpen</td>
+    <td>开镜头</td>
+  </tr>
+  <tr>
+    <td>cameralrisHollowClose</td>
+    <td>关镜头</td>
+  </tr>
+</tbody></table>
 
-</li>
-</ul>
-<h4 id="2-第一个Tweak"><a href="#2-第一个Tweak" class="headerlink" title="2.第一个Tweak"></a>2.第一个Tweak</h4><ul>
-<li><p>找一个目录，cd进去，执行</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">nic.pl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="https://img.wlxwyx.com/%E6%88%AA%E5%B1%8F2020-12-14%2018.21.54.png" alt="创建tweak项目"></p>
-<blockquote>
-<p>选择的模板：15</p>
-<p>项目名：second</p>
-<p>Bundle Identifier：com.fr.test</p>
-<p>作者：wlx</p>
-<p>要hook的应用Bundle Identifier：com.apple.MobileSMS</p>
-<p>要Hook项目Mach-o文件名: MobileSMS</p>
-</blockquote>
-<p><em>注意： 刚开始我使用的是<code>SpringBoard</code>,一直不成功，后来换成<code>MobileSMS</code>就成功了</em></p>
-</li>
-<li><p>进入<code>cd second</code>, <code>ls</code>,我这里是</p>
-<blockquote>
-<p>Makefile            Tweak.x                control                second.plist</p>
-</blockquote>
-<p>重命名Tweak.x为Tweak.xm</p>
-</li>
-<li><p>修改Makefile里的Tweak.x为Tweak.xm,添加</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">THEOS_DEVICE_IP = 192.168.1.123  #手机ip 
-THEOS_DEVICE_PORT = 22 #手机端口号
-ARCHS = armv7 arm64 #手机支持的平台<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>Tweak.xm添加</p>
-<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">@import UIKit;
 
-%hook SMSApplication
+<p>2.转场动画的subType</p>
+<table>
+  <tbody><tr align="center">
+    <th colspan="2">subType的值</th>
+    <th rowspan="2">解释</th>
+  </tr>
+  <tr>
+    <td>oc</td>
+    <td>swift</td>
+  </tr>
+  <tr>
+    <td>kCATransitionFromRight</td>
+    <td>CATransitionSubtype.fromRight</td>
+    <td>从右转场</td>
+  </tr>
+  <tr>
+    <td>kCATransitionFromLeft</td>
+    <td>CATransitionSubtype.fromLeft</td>
+    <td>从左转场</td>
+  </tr>
+  <tr>
+    <td>kCATransitionFromBottom</td>
+    <td>CATransitionSubtype.fromBottom</td>
+    <td>从下转场</td>
+  </tr>
+  <tr>
+    <td>kCATransitionFromTop</td>
+    <td>CATransitionSubtype.fromTop</td>
+    <td>从上转场</td>
+  </tr>
+</tbody></table>
 
--(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
-    UIAlertView *alert = [[UIAlertView alloc]
-    initWithTitle:@"Hello，lecoding!"
-    message:nil
-    delegate:self cancelButtonTitle:@"OK"
-    otherButtonTitles:nil];
-    [alert show];
-    return %orig; 
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>编译打包安装</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">make //编译
-make package //打包
-make install //安装<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://img.wlxwyx.com/1658A8A2E342C62A66F23F048E88CBFE.png" alt="hook 消息"></p>
-</li>
-</ul>
+
+<p>3.转场动画的timingFunction</p>
+<table>
+  <tbody><tr align="center">
+    <th colspan="2">timingFunction的值</th>
+    <th rowspan="2">解释</th>
+  </tr>
+  <tr>
+    <td>oc</td>
+    <td>swift(CAMediaTimingFunctionName)</td>
+  </tr>
+  <tr>
+    <td>kCAMediaTimingFunctionLinear</td>
+    <td>.linear</td>
+    <td>线性匀速</td>
+  </tr>
+  <tr>
+    <td>kCAMediaTimingFunctionEaseIn</td>
+    <td>.easeIn</td>
+    <td>先慢后快</td>
+  </tr>
+  <tr>
+    <td>kCAMediaTimingFunctionEaseOut</td>
+    <td>.easeOut</td>
+    <td>先快后慢</td>
+  </tr>
+  <tr>
+    <td>kCAMediaTimingFunctionEaseInEaseOut</td>
+    <td>.easeInEaseOut</td>
+    <td>慢快慢</td>
+  </tr>
+  <tr>
+    <td>kCAMediaTimingFunctionDefault</td>
+    <td>.default</td>
+    <td>默认</td>
+  </tr>
+</tbody></table>
+
+
+
+
+
+
+
+<p>​        </p>
+<p>​      </p>
+<p>​      </p>
 
                 
             </div>
@@ -627,7 +779,7 @@ make install //安装<span aria-hidden="true" class="line-numbers-rows"><span></
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.wlxwyx.com/2020/12/14/hook-zhi-tweak/">http://www.wlxwyx.com/2020/12/14/hook-zhi-tweak/</a>
+                    <a href="http://www.wlxwyx.com/2021/05/07/ios-dong-hua-shu-xing/">http://www.wlxwyx.com/2021/05/07/ios-dong-hua-shu-xing/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -665,8 +817,8 @@ make install //安装<span aria-hidden="true" class="line-numbers-rows"><span></
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/iOS%E9%80%86%E5%90%91/">
-                                    <span class="chip bg-color">iOS逆向</span>
+                                <a href="/tags/iOS-%E5%8A%A8%E7%94%BB/">
+                                    <span class="chip bg-color">iOS 动画</span>
                                 </a>
                             
                         </div>
@@ -1099,17 +1251,18 @@ make install //安装<span aria-hidden="true" class="line-numbers-rows"><span></
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/12/16/oc-zhong-de-extern-he-static-yong-fa/">
+                <a href="/2021/05/07/ios-dong-hua-shu-xing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="oc中的extern和static用法">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="iOS动画属性">
                         
-                        <span class="card-title">oc中的extern和static用法</span>
+                        <span class="card-title">iOS动画属性</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1119,9 +1272,59 @@ make install //安装<span aria-hidden="true" class="line-numbers-rows"><span></
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-16
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/iOS/" class="post-category">
+                                    iOS
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/iOS-%E5%8A%A8%E7%94%BB/">
+                        <span class="chip bg-color">iOS 动画</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/01/18/ios-qi-dong-tu-dong-tai-she-zhi-ban-ben-hao/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="动态设置版本号">
+                        
+                        <span class="card-title">动态设置版本号</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1137,61 +1340,8 @@ make install //安装<span aria-hidden="true" class="line-numbers-rows"><span></
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/oc/">
-                        <span class="chip bg-color">oc</span>
-                    </a>
-                    
-                    <a href="/tags/Objective-C/">
-                        <span class="chip bg-color">Objective-C</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/12/09/hui-bian-yu-yan-1/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="汇编语言1">
-                        
-                        <span class="card-title">汇编语言1</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-09
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="post-category">
-                                    编程语言
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
-                        <span class="chip bg-color">汇编语言</span>
+                    <a href="/tags/iOS%E7%89%88%E6%9C%AC%E5%8F%B7/">
+                        <span class="chip bg-color">iOS版本号</span>
                     </a>
                     
                 </div>

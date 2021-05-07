@@ -6,7 +6,7 @@
   <link href="http://www.wlxwyx.com/atom.xml" rel="self"/>
   
   <link href="http://www.wlxwyx.com/"/>
-  <updated>2021-01-18T05:40:30.459Z</updated>
+  <updated>2021-05-07T03:04:39.460Z</updated>
   <id>http://www.wlxwyx.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS动画属性</title>
+    <link href="http://www.wlxwyx.com/2021/05/07/ios-dong-hua-shu-xing/"/>
+    <id>http://www.wlxwyx.com/2021/05/07/ios-dong-hua-shu-xing/</id>
+    <published>2021-05-07T01:32:41.000Z</published>
+    <updated>2021-05-07T03:04:39.460Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、基础动画&quot;&gt;&lt;a href=&quot;#一、基础动画&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="iOS" scheme="http://www.wlxwyx.com/categories/iOS/"/>
+    
+    
+    <category term="iOS 动画" scheme="http://www.wlxwyx.com/tags/iOS-%E5%8A%A8%E7%94%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>动态设置版本号</title>
